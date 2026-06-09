@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { RestaurantService } from '../../../Services/restaurant.service';
+import { Component, input } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { ItemList } from '../../../Models/restaurant.model';
 
 @Component({
   selector: 'app-display-items',
@@ -9,5 +9,6 @@ import { CurrencyPipe } from '@angular/common';
   styleUrl: './display-items.component.css'
 })
 export class DisplayItemsComponent {
-  restaurantService = inject(RestaurantService)
+
+  items = input<ItemList[]>([])
 }

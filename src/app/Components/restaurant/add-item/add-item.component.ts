@@ -1,6 +1,6 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { RestaurantService } from '../../../Services/restaurant.service';
+import { ItemList } from '../../../Models/restaurant.model';
 
 @Component({
   selector: 'app-add-item',
@@ -10,7 +10,7 @@ import { RestaurantService } from '../../../Services/restaurant.service';
 })
 export class AddItemComponent {
 
-  restaurantService = inject(RestaurantService)
+  itemAdded = output<ItemList>()
   imagePreview = signal<string>('')
 
   form = new FormGroup({
@@ -18,7 +18,7 @@ export class AddItemComponent {
       validators: [Validators.required]
     }),
     imageUrl: new FormControl('', {
-      validators: [Validators.required]
+      validators: [Validators.required, Validators.pattern(/\.(jpg|jpeg|png|webp)(\?.*)?$/i)]
     }),
     category: new FormControl('', {
       validators: [Validators.required]
@@ -29,33 +29,22 @@ export class AddItemComponent {
     isSpecial: new FormControl<boolean>(false)
   })
 
-  onFileSelect(event: any) {
-    const file = event.target.files[0]
-
-    if (file) {
-      const reader = new FileReader()
-
-      reader.onload = () => (this.imagePreview.set(reader.result as string));
-
-      reader.readAsDataURL(file)
-    }
-  }
 
   onSubmit() {
     const value = this.form.value;
     const newItem = {
       itemName: value.itemName ?? '',
-      imageUrl: this.imagePreview() ?? '',
+      imageUrl: value.imageUrl ?? '',
       category: value.category ?? '',
       price: value.price ?? 0,
       isSpecial: value.isSpecial ?? false
     };
 
-    if(this.form.valid) {
-      this.restaurantService.addedItems.update((prevItems) => [...prevItems, newItem]);
+    if (this.form.valid) {
+      this.itemAdded.emit(newItem);
       this.form.reset()
     }
-    
+
     this.form.patchValue({
       category: ''
     })

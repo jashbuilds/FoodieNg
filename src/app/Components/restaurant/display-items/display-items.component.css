@@ -19,3 +19,8 @@
 .addToMenuBtn:hover {
     background-color: var(--ebony);
 }
+
+.itemImg {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}

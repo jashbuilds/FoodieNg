@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { AddItemComponent } from './add-item/add-item.component';
 import { DisplayItemsComponent } from './display-items/display-items.component';
+import { ItemList } from '../../Models/restaurant.model';
 
 @Component({
   selector: 'app-restaurant',
@@ -10,4 +11,9 @@ import { DisplayItemsComponent } from './display-items/display-items.component';
 })
 export class RestaurantComponent {
 
+  addedItems = signal<ItemList[]>([])
+
+  onItemAdded(item: ItemList) {
+    this.addedItems.update(prev => [...prev, item])
+  }
 }

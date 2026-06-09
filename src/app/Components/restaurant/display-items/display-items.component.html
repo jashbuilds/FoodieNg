@@ -1,5 +1,5 @@
 <div class="mt-5">
-    @if(restaurantService.addedItems().length === 0) {
+    @if(items().length === 0) {
     <div
         class="border border-2 rounded-4 itemsGrid d-flex flex-column justify-content-center align-items-center min-vh-60">
         <p class="fs-3 fw-bold color-dusty-olive m-0 text-nowrap">No Items
@@ -14,41 +14,39 @@
     </div>
 
     <hr class="color-dusty-olive border-3 rounded-4 my-4">
-    @for (item of restaurantService.addedItems(); track $index) {
+    <div class="row g-3">
+        @for (item of items(); track $index) {
 
-    <div class="card mb-4 w-auto rounded-4 shadow border-0 itemsCard">
-        <div class="row g-0">
-            <div
-                class="col-4 p-3 d-flex justify-content-center align-items-center">
-                <img [src]="item.imageUrl" class="img-fluid rounded-4"
-                    alt="item-{{ $index }}">
-            </div>
-            <div class="col-8">
-                <div
-                    class="card-body h-100 d-flex justify-content-between flex-column">
-                    <div>
-                        <h5
-                            class="card-title fw-bold fs-3 color-dusty-olive">{{
-                            item.itemName }}</h5>
-                        <p class="card-text fw-medium fs-4 color-camel">{{
-                            item.category }}</p>
+        <div class="col-lg-6">
+            <div class="card h-100 rounded-4 shadow border-0 itemsCard">
+                <div class="row g-0">
+                    <div class="col-4 p-3 d-flex justify-content-center align-items-center">
+                        <img [src]="item.imageUrl" class="img-fluid rounded-4 itemImg" alt="item-{{ $index }}">
                     </div>
-                    <div class="d-flex justify-content-end">
-                        <p
-                            class="card-text fw-medium fs-4 color-coffee-bean">{{
-                            item.price | currency:'INR' }}</p>
-                    </div>
-                    <div class="card-footer border-0 bg-transparent">
-                        <button
-                            class="btn text-white cursor-pointer bg-gradient border-0 addToMenuBtn">Add
-                            to Menu</button>
+                    <div class="col-8">
+                        <div class="card-body h-100 d-flex justify-content-between flex-column">
+                            <div>
+                                <h5 class="card-title fw-bold fs-3 color-dusty-olive">{{
+                                    item.itemName }}</h5>
+                                <p class="card-text fw-medium fs-4 color-camel">{{
+                                    item.category }}</p>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <p class="card-text fw-medium fs-4 color-coffee-bean">{{
+                                    item.price | currency:'INR' }}</p>
+                            </div>
+                            <div class="card-footer border-0 bg-transparent">
+                                <button class="btn text-white cursor-pointer bg-gradient border-0 addToMenuBtn">Add
+                                    to Menu</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    }
+        }
+    </div>
 
     }
 </div>

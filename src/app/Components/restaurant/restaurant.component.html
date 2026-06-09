@@ -1,13 +1,11 @@
-<div class="container-fluid mt-7">
+<div class="container-fluid mt-7 mb-5">
     <div class="row g-0">
         <div class="col-md-5 px-sm-4">
-            <app-add-item class="position-sticky sticky-top top-15" />
+            <app-add-item class="position-sticky sticky-top top-15" (itemAdded)="onItemAdded($event)" />
         </div>
 
-        <!-- <div class="vr mt-4 mx-auto col-1"></div> -->
-
         <div class="col-md-7 mx-auto my-auto">
-            <app-display-items />
+            <app-display-items [items]="addedItems()" />
         </div>
     </div>
 </div>
