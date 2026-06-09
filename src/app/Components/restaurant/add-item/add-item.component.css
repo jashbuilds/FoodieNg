@@ -1,0 +1,17 @@
+
+.addItemForm {
+    border: 1px solid transparent !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.addItemForm:hover {
+    border-color: var(--coffee-bean) !important;
+}
+
+.submitBtn {
+    background-color: var(--coffee-bean);
+}
+
+.submitBtn:hover {
+    background-color: var(--dusty-olive);
+}

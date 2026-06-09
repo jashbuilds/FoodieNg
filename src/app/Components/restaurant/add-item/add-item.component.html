@@ -1,0 +1,73 @@
+<form [formGroup]="form"
+    class="addItemForm px-4 py-4 rounded-4 mt-5 bg-almond-cream bg-gradient shadow"
+    (ngSubmit)="onSubmit()">
+    <div class="d-flex justify-content-center align-items-center gap-3">
+        <span class="fs-2 text-center color-dusty-olive fw-bold">Add Item</span>
+        <img src="icons/menu-board-icon.svg" alt="menu-icon" width="35" height="35">
+    </div>
+    <div class="mb-3">
+        <label for="itemName" class="form-label fs-4 text-muted">Item
+            Name</label>
+        <input type="text" class="form-control" id="itemName"
+            aria-describedby="itemName" placeholder="Enter Item Name"
+            formControlName="itemName"
+            [class.is-invalid]="form.get('itemName')?.invalid && form.get('itemName')?.touched"
+            [class.valid]="form.get('itemName')?.valid">
+        <div class="invalid-feedback">
+            *Enter valid Item name!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="imageUrl"
+            class="form-label fs-4 text-muted">Image</label>
+        <input type="file" class="form-control" accept="image/*"
+            (change)="onFileSelect($event)"
+            id="imageUrl" formControlName="imageUrl"
+            [class.is-invalid]="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched"
+            [class.valid]="form.get('imageUrl')?.valid">
+        <div class="invalid-feedback">
+            *Select valid File!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="category"
+            class="form-label fs-4 text-muted">Category</label>
+        <select class="form-select" aria-label="category"
+            formControlName="category"
+            [class.is-invalid]="form.get('category')?.invalid && form.get('category')?.touched"
+            [class.valid]="form.get('category')?.valid">
+            <option value selected>Select Category</option>
+            <option value="south-indian">South Indian</option>
+            <option value="gujarati">Gujarati</option>
+            <option value="punjabi">Punjabi</option>
+            <option value="mexican">Mexican</option>
+        </select>
+        <div class="invalid-feedback">
+            *Select at least one Category!
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="price"
+            class="form-label fs-4 text-muted">Price</label>
+        <div class="input-group"
+            [class.is-invalid]="form.get('price')?.invalid && form.get('price')?.touched"
+            [class.valid]="form.get('price')?.valid">
+            <span class="input-group-text" id="price">₹</span>
+            <input type="number" class="form-control" placeholder="Enter Price"
+                aria-label="Username" aria-describedby="price" min="0"
+                formControlName="price" (keydown)="validateNumber($event)">
+        </div>
+        <div class="invalid-feedback">
+            *Enter valid Price!
+        </div>
+    </div>
+    <div class="my-4 form-check align-content-center">
+        <input type="checkbox" class="form-check-input mt-2" id="category"
+            formControlName="isSpecial">
+        <label class="form-check-label fs-5 text-muted" for="category">Special
+            Item</label>
+    </div>
+    <div class="d-flex justify-content-end align-items-center">
+        <button type="submit" class="btn submitBtn text-white cursor-pointer bg-gradient border-0" [disabled]="form.invalid">Submit</button>
+    </div>
+</form>

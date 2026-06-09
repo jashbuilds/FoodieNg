@@ -1,0 +1,21 @@
+.itemsGrid {
+    border-color: var(--almond-cream) !important;
+}
+
+.itemsCard {
+    border: 1px solid transparent !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.itemsCard:hover {
+    border-color: var(--dusty-olive) !important;
+    transform: translateY(-2px);
+}
+
+.addToMenuBtn {
+    background-color: var(--camel);
+}
+
+.addToMenuBtn:hover {
+    background-color: var(--ebony);
+}

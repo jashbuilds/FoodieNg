@@ -1,1 +1,74 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
+
+* {
+    font-family: 'Syne', sans-serif;
+}
+
+/* Colour Palette */
+
+:root {
+    --coffee-bean: #7f5539;
+    --camel: #a68a64;
+    --almond-cream: #ede0d4;
+    --dusty-olive: #656d4a;
+    --ebony: #414833;
+    --primary-white: white;
+}
+
+
+/* Custom Classes */
+.bg-coffee-bean {
+    background-color: var(--coffee-bean);
+}
+
+.bg-camel {
+    background-color: var(--camel);
+}
+
+.bg-almond-cream {
+    background-color: var(--almond-cream);
+}
+
+.bg-dusty-olive {
+    background-color: var(--dusty-olive);
+}
+
+.bg-ebony {
+    background-color: var(--ebony);
+}
+
+
+.color-coffee-bean {
+    color: var(--coffee-bean);
+}
+
+.color-camel {
+    color: var(--camel);
+}
+
+.color-almond-cream {
+    color: var(--almond-cream);
+}
+
+.color-dusty-olive {
+    color: var(--dusty-olive);
+}
+
+.color-ebony {
+    color: var(--ebony);
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.mt-7 {
+    margin-top: 5.5rem;
+}
+
+.min-vh-60 {
+    min-height: 60vh;
+}

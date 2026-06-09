@@ -1,0 +1,12 @@
+.nav-link .nav-link-text {
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-link.active .nav-link-text {
+    background-color: var(--camel);
+    color: var(--primary-white);
+}
+
+.nav-link:hover span{
+    color: var(--primary-white) !important;
+}

@@ -1,0 +1,49 @@
+<nav
+    class="navbar navbar-expand-sm shadow-lg px-3 fixed-top bg-ebony py-3 px-2">
+    <div class="container-fluid">
+
+        <div
+            class="d-flex align-items-center gap-2 text-decoration-none">
+            <a routerLink="/home" routerLinkActive #rlaHome="routerLinkActive"
+                class="d-flex align-items-center text-decoration-none cursor-pointer">
+                <img src="icons/restaurant-icon.svg" alt="ecom" width="50"
+                    height="50"
+                    class="rounded d-inline-block align-text-top me-2" />
+
+            </a>
+            <div class="d-flex flex-column align-items-center">
+                <p
+                    class="fs-2 fw-bold m-0 d-flex flex-column color-almond-cream">FoodieNG</p>
+            </div>
+        </div>
+
+        <button class="navbar-toggler border-0 bg-almond-cream" type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarToggler"
+            aria-controls="navbarToggler" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarToggler">
+            <ul
+                class="navbar-nav ms-auto mt-3 mt-sm-0 mb-lg-0 d-flex flex-row justify-content-center align-items-center gap-5 gap-sm-2">
+                <li class="nav-item">
+                    <a routerLink="/home" routerLinkActive #rlaHome="routerLinkActive"
+                        class="nav-link cursor-pointer" [class]="rlaHome.isActive ? 'active' : ''">
+                        <span class="nav-link-text color-almond-cream fw-medium fs-6 rounded border-0 px-3 py-2">
+                            Home
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a routerLink="/todaysMenu" routerLinkActive #rlaMenu="routerLinkActive"
+                        class="nav-link cursor-pointer" [class]="rlaMenu.isActive ? 'active' : ''">
+                        <span class="nav-link-text color-almond-cream fw-medium fs-6 rounded border-0 px-3 py-2">
+                            Today's Menu
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
