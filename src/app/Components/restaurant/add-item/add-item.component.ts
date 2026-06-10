@@ -1,6 +1,5 @@
-import { Component, inject, output, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ItemList } from '../../../Models/restaurant.model';
 import { RestaurantService } from '../../../Services/restaurant.service';
 
 @Component({

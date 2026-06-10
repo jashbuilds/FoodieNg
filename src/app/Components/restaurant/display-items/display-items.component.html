@@ -24,15 +24,19 @@
 
         <div class="col-lg-6">
             <div
-                class="card itemsCard h-100 rounded-4 shadow border-0 d-flex justify-content-center">
+                class="card itemsCard h-100 rounded-4 shadow border-0 d-flex justify-content-center position-relative">
                 <div class="row g-0">
 
                     <!-- Item image -->
                     <div
-                        class="col-5 p-3 d-flex justify-content-center align-items-center position-relative">
+                        class="col-5 p-2 d-flex justify-content-center align-items-center">
+
+                        <!-- Item image -->
                         <img [src]="item.imageUrl"
                             class="img-fluid rounded-4 itemImg"
                             alt="item-{{ $index }}">
+
+                        <!-- Special item icon -->
                         <img width="40" height="40" appTooltip
                             title="Special Item"
                             [src]="item.isSpecial ? 'icons/special-icon.svg' : ''"
@@ -50,9 +54,11 @@
                                     <h5
                                         class="card-title fw-bold fs-3 color-dusty-olive">{{
                                         item.itemName }}</h5>
+                                    
+                                    <!-- Add Icon -->
                                     <img appTooltip title="Add To Menu"
                                         src="icons/add-icon.svg" alt="add-item"
-                                        class="addIcon img-fluid cursor-pointer"
+                                        class="addIcon img-fluid cursor-pointer position-absolute top-0 end-0 mt-3 me-2"
                                         width="25" height="25"
                                         (click)="addToMenu(item)">
                                 </div>

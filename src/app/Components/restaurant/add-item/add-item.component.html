@@ -59,14 +59,14 @@
         </div>
     </div>
 
-    <div class="d-flex align-items-center justify-content-between gap-3">
-        <div class="mb-3 col-lg-6">
+    <div class="d-flex align-items-center justify-content-between gap-md-3 flex-wrap">
+        <div class="col-lg-6">
             <label for="price" class="form-label fs-4 text-muted">Price</label>
             <div class="input-group"
                 [class.is-invalid]="form.get('price')?.invalid && form.get('price')?.touched"
                 [class.valid]="form.get('price')?.valid">
-                <span class="input-group-text" id="price">₹</span>
-                <input type="number" id="price" class="form-control" placeholder="Enter Price"
+                <span class="input-group-text bg-body" id="price">₹</span>
+                <input type="number" id="price" class="form-control border-start-0" placeholder="Enter Price"
                     aria-label="Username"
                     aria-describedby="price" min="0" formControlName="price"
                     (keydown)="validateNumber($event)">
@@ -76,14 +76,13 @@
             </div>
         </div>
         <div class="my-4 form-check align-content-center">
-            <input type="checkbox" class="form-check-input mt-2" id="category"
+            <input type="checkbox" class="mt-2 form-check-input" id="category"
                 formControlName="isSpecial" width="30" height="30">
-            <label class="form-check-label fs-5 text-muted" for="category">Special
-                Item</label>
+            <label class="form-check-label fs-5 text-muted" for="category">Special Item</label>
         </div>
     </div>
     
-    <div class="d-flex justify-content-end align-items-center gap-2">
+    <div class="d-flex justify-content-end align-items-center gap-2 mt-sm-3">
         <button type="button"
             class="btn px-4 resetBtn text-muted cursor-pointer bg-gradient border border-secondary"
             (click)="onResetForm()">Reset</button>
