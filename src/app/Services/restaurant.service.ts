@@ -8,5 +8,9 @@ export class RestaurantService {
 
   constructor() { }
 
+  /* Available Items array signal */
   addedItems = signal<ItemList[]>([])
+
+  /* Menu Items array signal */
+  menuItems = signal<ItemList[]>([])
 }

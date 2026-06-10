@@ -1,0 +1,25 @@
+.itemImg {
+    aspect-ratio: 1/1;
+    object-fit: cover;
+}
+
+.removeIcon {
+    transition: all 0.2s ease-in-out;
+}
+
+.removeIcon:hover {
+    transform: scale(1.1);
+}
+
+.removeIcon:active {
+    transform: scale(1);
+}
+
+.itemsCard {
+    border: 1px solid transparent !important;
+    transition: all 0.3s ease-in-out;
+}
+
+.itemsCard:hover {
+    border-color: var(--dusty-olive) !important;
+}

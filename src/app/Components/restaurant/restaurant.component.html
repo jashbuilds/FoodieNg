@@ -1,11 +1,14 @@
 <div class="container-fluid mt-7 mb-5">
     <div class="row g-0">
+
+        <!-- Form component to add items -->
         <div class="col-md-5 px-sm-4">
-            <app-add-item class="position-sticky sticky-top top-15" (itemAdded)="onItemAdded($event)" />
+            <app-add-item class="position-sticky sticky-top top-15" />
         </div>
 
-        <div class="col-md-7 mx-auto my-auto">
-            <app-display-items [items]="addedItems()" />
+        <!-- Display component to show available items -->
+        <div class="col-md-7 mx-auto">
+            <app-display-items />
         </div>
     </div>
 </div>

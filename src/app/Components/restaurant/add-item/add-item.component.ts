@@ -1,6 +1,7 @@
-import { Component, output, signal } from '@angular/core';
+import { Component, inject, output, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ItemList } from '../../../Models/restaurant.model';
+import { RestaurantService } from '../../../Services/restaurant.service';
 
 @Component({
   selector: 'app-add-item',
@@ -10,9 +11,11 @@ import { ItemList } from '../../../Models/restaurant.model';
 })
 export class AddItemComponent {
 
-  itemAdded = output<ItemList>()
+  restaurantService = inject(RestaurantService)
+  availableItems = this.restaurantService.addedItems
   imagePreview = signal<string>('')
 
+  /* Form fields */
   form = new FormGroup({
     itemName: new FormControl('', {
       validators: [Validators.required]
@@ -29,7 +32,7 @@ export class AddItemComponent {
     isSpecial: new FormControl<boolean>(false)
   })
 
-
+  /* Helper function to handle submit logic */
   onSubmit() {
     const value = this.form.value;
     const newItem = {
@@ -41,7 +44,13 @@ export class AddItemComponent {
     };
 
     if (this.form.valid) {
-      this.itemAdded.emit(newItem);
+      this.availableItems.update(items => {
+        const exists = items.some(item => item.itemName === newItem.itemName)
+
+        if (exists) return items;
+
+        return [...items, newItem]
+      })
       this.form.reset()
     }
 
@@ -51,6 +60,16 @@ export class AddItemComponent {
     this.imagePreview.set('')
   }
 
+  /* Helper function to handle form reset */
+  onResetForm() {
+    this.form.reset()
+
+    this.form.patchValue({
+      category: ''
+    })
+  }
+
+  /* Function to validate price input */
   validateNumber(e: KeyboardEvent) {
     const pattern = /^[0-9]$/;
 

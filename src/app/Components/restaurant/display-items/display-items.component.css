@@ -24,3 +24,11 @@
     aspect-ratio: 1/1;
     object-fit: cover;
 }
+
+.addIcon {
+    transition: all 0.1s ease-in-out;
+}
+
+.addIcon:active {
+    transform: scale(0.95);
+}

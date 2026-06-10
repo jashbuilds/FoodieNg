@@ -15,3 +15,9 @@
 .submitBtn:hover {
     background-color: var(--dusty-olive);
 }
+
+.resetBtn:hover {
+    background-color: var(--dusty-olive) !important;
+    color: var(--primary-white) !important;
+    border-color: transparent !important;
+}
