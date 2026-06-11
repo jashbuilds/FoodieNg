@@ -72,3 +72,27 @@
 .min-vh-60 {
     min-height: 60vh;
 }
+
+.w-30 {
+    width: 30% !important;
+}
+
+/* CSS to apply on special items */
+
+@keyframes rotate {
+    to {
+        --angle: 360deg;
+    }
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.specialBorderColor {
+    border: 2px solid transparent !important;
+    background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(var(--angle), #D4EA62, #ED711E, #E9295C) border-box;
+    animation: 3s rotate linear infinite;
+}

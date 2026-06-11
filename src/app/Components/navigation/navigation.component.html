@@ -20,12 +20,12 @@
 
         <!-- Hamburger -->
         <button class="navbar-toggler border-0 bg-almond-cream" type="button"
-            
             data-bs-toggle="collapse"
             data-bs-target="#navbarToggler"
             aria-controls="navbarToggler" aria-expanded="false"
             aria-label="Toggle navigation">
-            <span (click)="nav.classList.toggle('show')" class="navbar-toggler-icon"></span>
+            <span (click)="nav.classList.toggle('show')"
+                class="navbar-toggler-icon"></span>
         </button>
 
         <!-- Navigation links -->
@@ -44,7 +44,7 @@
                         </span>
                     </a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item position-relative">
                     <a routerLink="/todaysMenu" routerLinkActive
                         #rlaMenu="routerLinkActive"
                         (click)="nav.classList.toggle('show')"
@@ -55,6 +55,9 @@
                             Today's Menu
                         </span>
                     </a>
+                    <span
+                        class="badge p-0 rounded-circle bg-almond-cream color-ebony position-absolute top-0 end-0 d-flex justify-content-center align-items-center">{{
+                        menuItems().length }}</span>
                 </li>
             </ul>
         </div>

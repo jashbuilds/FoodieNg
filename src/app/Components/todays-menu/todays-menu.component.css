@@ -16,7 +16,7 @@
 }
 
 .itemsCard {
-    border: 1px solid transparent !important;
+    border: 2px solid transparent !important;
     transition: all 0.3s ease-in-out;
 }
 

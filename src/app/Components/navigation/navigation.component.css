@@ -7,6 +7,14 @@
     color: var(--primary-white);
 }
 
-.nav-link:hover span{
+.nav-link:hover span {
     color: var(--primary-white) !important;
+}
+
+/* Update the badge class or add these styles */
+.badge {
+    transform: translate(25%, -25%);
+    width: 22px;
+    height: 22px;
+    line-height: 1;
 }

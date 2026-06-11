@@ -1,3 +1,5 @@
+<app-navigation />
+
 <div class="container-fluid mt-7 mb-5 px-sm-4">
     <div class="row g-0 mt-5">
         <div class="mt-5">
@@ -22,7 +24,8 @@
             <!-- Category wise Items -->
             @for (category of categories(); track category) {
 
-            <h3 class="fw-semibold color-dusty-olive mt-5">{{ category.toUpperCase() }}</h3>
+            <h3 class="fw-semibold color-dusty-olive mt-5">{{
+                category.toUpperCase() }}</h3>
 
             <hr class="color-dusty-olive border-3 rounded-4 my-4">
 
@@ -33,7 +36,8 @@
                 {
                 <div class="col-lg-3 col-sm-6">
                     <div
-                        class="card h-100 rounded-4 shadow itemsCard position-relative">
+                        class="card h-100 rounded-4 shadow itemsCard position-relative"
+                        [class.specialBorderColor]="item.isSpecial">
                         <div class="row g-0">
                             <div>
                                 <img (click)="onRemoveConfirmation(item)"
@@ -45,15 +49,10 @@
                                     class="removeIcon position-absolute m-2 top-0 end-0 cursor-pointer">
                             </div>
                             <div
-                                class="col-5 p-2 position-relative d-flex justify-content-center align-items-center">
+                                class="col-5 p-2 d-flex justify-content-center align-items-center">
                                 <img [src]="item.imageUrl"
                                     class="img-fluid rounded-4 itemImg"
                                     alt="item-{{ $index }}">
-                                <img width="40" height="40" appTooltip
-                                    title="Special Item"
-                                    [src]="item.isSpecial ? 'icons/special-icon.svg' : ''"
-                                    alt="special-icon"
-                                    [class]="item.isSpecial ? 'position-absolute top-0 start-0 mt-1' : 'visually-hidden'">
                             </div>
                             <div class="col-7">
                                 <div
@@ -63,7 +62,8 @@
                                             class="d-flex justify-content-between">
                                             <h5
                                                 [appSpecialBgColor]="item.isSpecial"
-                                                class="card-title fw-bold fs-3 color-dusty-olive m-0 p-1 rounded">{{
+                                                [class]="item.isSpecial ? 'p-1 rounded' : '' "
+                                                class="card-title fw-bold fs-3 color-dusty-olive m-0">{{
                                                 item.itemName }}</h5>
                                         </div>
                                         <p

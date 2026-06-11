@@ -6,10 +6,11 @@ import { ToastDirective } from "../../Directives/toast.directive";
 import { TooltipDirective } from "../../Directives/tooltip.directive";
 import { ItemList } from '../../Models/restaurant.model';
 import { SpecialBgColorDirective } from '../../Directives/special-bg-color.directive';
+import { NavigationComponent } from "../navigation/navigation.component";
 
 @Component({
   selector: 'app-todays-menu',
-  imports: [CurrencyPipe, TooltipDirective, ToastDirective, SpecialBgColorDirective],
+  imports: [CurrencyPipe, TooltipDirective, ToastDirective, SpecialBgColorDirective, NavigationComponent],
   templateUrl: './todays-menu.component.html',
   styleUrl: './todays-menu.component.css'
 })

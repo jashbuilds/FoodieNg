@@ -1,16 +1,51 @@
 <div class="mt-5 px-sm-4">
-    @if(availableItems().length === 0) {
+    <div class="row">
+        <div class="col-sm-8 col-6">
+            <div class="input-group mb-3">
+                <label for="search" class="input-group-text bg-transparent">
+                    <img src="icons/search.svg" alt="search-icon" width="18"
+                        height="18">
+                </label>
+                <input type="text" class="form-control border-start-0"
+                    (keyup)="getResults($event)"
+                    placeholder="Search by Item Name or Category"
+                    aria-label="Search Field" aria-describedby="search-field">
+            </div>
+        </div>
+
+        <div class="col-sm-4 col-6">
+            <div class="input-group mb-3">
+                <label class="input-group-text bg-transparent"
+                    for="category-filter">
+                    <img src="icons/filter-icon.svg"
+                        alt="filter-icon" width="25"
+                        height="25">
+                </label>
+                <select class="form-select border-start-0" id="category-filter"
+                    (change)="onSelectCategory($event)">
+                    <option value="All Category" selected>All Category</option>
+                    <option value="gujarati">Gujarati</option>
+                    <option value="punjabi">Punjabi</option>
+                    <option value="south-indian">South Indian</option>
+                    <option value="mexican">Mexican</option>
+                </select>
+            </div>
+        </div>
+
+    </div>
+
+    @if(filteredItems().length === 0) {
 
     <!-- Empty message -->
     <div
-        class="border border-2 rounded-4 itemsGrid d-flex flex-column justify-content-center align-items-center min-vh-60">
+        class="mt-3 border border-2 rounded-4 itemsGrid d-flex flex-column justify-content-center align-items-center min-vh-60">
         <p class="fs-3 fw-bold color-dusty-olive m-0 text-nowrap">No Items
             Available!</p>
         <p class="fw-medium color-camel">Please add Item to Preview.</p>
     </div>
     } @else {
 
-    <div class="d-flex justify-content-end align-items-center gap-2">
+    <div class="mt-3 d-flex justify-content-end align-items-center gap-2">
         <p class="fs-2 m-0 fw-semibold text-end color-dusty-olive m-0">Available
             Items</p>
         <img src="icons/food-icon-1.svg" alt="food-icon" width="35" height="35">
@@ -19,12 +54,13 @@
     <hr class="color-dusty-olive border-3 rounded-4 my-4">
 
     <!-- Available item cards -->
-    <div class="row g-4">
-        @for (item of availableItems(); track $index) {
+    <div class="row g-4 mt-2">
+        @for (item of filteredItems(); track $index) {
 
         <div class="col-lg-6">
             <div
-                class="card itemsCard h-100 rounded-4 shadow border-0 d-flex justify-content-center position-relative">
+                class="card itemsCard h-100 rounded-4 shadow d-flex justify-content-center position-relative"
+                [class.specialBorderColor]="item.isSpecial">
                 <div class="row g-0">
 
                     <!-- Item image -->
@@ -36,12 +72,6 @@
                             class="img-fluid rounded-4 itemImg"
                             alt="item-{{ $index }}">
 
-                        <!-- Special item icon -->
-                        <img width="40" height="40" appTooltip
-                            title="Special Item"
-                            [src]="item.isSpecial ? 'icons/special-icon.svg' : ''"
-                            alt="special-icon"
-                            [class]="item.isSpecial ? 'position-absolute top-0 start-0 mt-1' : 'visually-hidden'">
                     </div>
 
                     <!-- Item details -->
@@ -54,13 +84,15 @@
                                     <h5
                                         class="card-title fw-bold fs-3 color-dusty-olive">{{
                                         item.itemName }}</h5>
-                                    
+
                                     <!-- Add Icon -->
+                                    @if(!checkIfAdded(item.itemName)) {
                                     <img appTooltip title="Add To Menu"
                                         src="icons/add-icon.svg" alt="add-item"
                                         class="addIcon img-fluid cursor-pointer position-absolute top-0 end-0 mt-3 me-2"
                                         width="25" height="25"
                                         (click)="addToMenu(item)">
+                                    }
                                 </div>
                                 <p
                                     class="card-text fw-medium fs-4 color-camel">{{

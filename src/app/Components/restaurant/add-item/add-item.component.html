@@ -11,7 +11,7 @@
 
     <!-- Form fields -->
     <div class="mb-3">
-        <label for="itemName" class="form-label fs-4 text-muted">Item Name</label>
+        <label for="itemName" class="form-label fs-4 text-muted">Item Name*</label>
         <input type="text" class="form-control" id="itemName"
             aria-describedby="itemName" placeholder="Enter Item Name"
             formControlName="itemName"
@@ -23,7 +23,7 @@
     </div>
 
     <div class="mb-3">
-        <label for="imageUrl" class="form-label fs-4 text-muted">Image URL</label>
+        <label for="imageUrl" class="form-label fs-4 text-muted">Image URL*</label>
         <input type="text" class="form-control" id="imageUrl"
             formControlName="imageUrl"
             [class.is-invalid]="form.get('imageUrl')?.invalid && form.get('imageUrl')?.touched"
@@ -43,7 +43,7 @@
     
     <div class="mb-3">
         <label for="category"
-            class="form-label fs-4 text-muted">Category</label>
+            class="form-label fs-4 text-muted">Category*</label>
         <select class="form-select" aria-label="category"
             formControlName="category"
             [class.is-invalid]="form.get('category')?.invalid && form.get('category')?.touched"
@@ -61,7 +61,7 @@
 
     <div class="d-flex align-items-center justify-content-between gap-md-3 flex-wrap">
         <div class="col-lg-6">
-            <label for="price" class="form-label fs-4 text-muted">Price</label>
+            <label for="price" class="form-label fs-4 text-muted">Price*</label>
             <div class="input-group"
                 [class.is-invalid]="form.get('price')?.invalid && form.get('price')?.touched"
                 [class.valid]="form.get('price')?.valid">

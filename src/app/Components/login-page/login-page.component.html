@@ -1,0 +1,78 @@
+<div class="container-fluid p-0 vh-100">
+    <div class="row g-0 h-100">
+        <div class="col-md-5 d-none d-md-flex h-100 shadow-lg">
+            <img src="images/stock-restaurant-illustration.jpeg"
+                alt="login-img"
+                class="w-100 h-100 object-fit-cover border border-2 border-top-0 border-bottom-0 border-start-0 border-secondary">
+        </div>
+        <div class="col-md-7 p-3 loginField">
+            <div
+                class="d-flex flex-column justify-content-center align-items-center mt-5">
+                <div class="d-flex flex-sm-row flex-column justify-content-center align-items-center gap-3">
+                    <p class="order-sm-0 order-1 fs-1 fw-bold color-ebony text-center m-0">Welcome to FoodieNG!</p>
+                    <img src="icons/restaurant-icon.svg" alt="restaurant-logo" class="img-fluid" width="45" height="45">
+                </div>
+
+                <hr class="color-camel border-3 rounded-4 my-4">
+
+                <div class="w-100">
+                    <form [formGroup]="form"
+                        class="loginForm px-4 py-5 rounded-4 mt-5 col-lg-6 col-md-8 col-sm-6 col-12 mx-auto"
+                        (ngSubmit)="onSubmit()">
+
+                        <!-- Form heading -->
+                        <div
+                            class="d-flex mb-3 justify-content-center align-items-center gap-3">
+                            <span
+                                class="fs-1 text-center color-dusty-olive fw-bold">Login</span>
+                        </div>
+
+                        <!-- Form fields -->
+                        <div class="mb-3">
+                            <label for="itemName"
+                                class="form-label fs-4 text-muted">Email</label>
+                            <input type="email" class="form-control form-control-lg"
+                                id="itemName"
+                                aria-describedby="itemName"
+                                placeholder="Enter Email ID"
+                                formControlName="email"
+                                [class.is-invalid]="form.get('email')?.invalid && form.get('email')?.touched"
+                                [class.valid]="form.get('email')?.valid">
+                            <div class="invalid-feedback fw-medium">
+                                *Enter valid Email!
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imageUrl"
+                                class="form-label fs-4 text-muted">Password</label>
+                            <input type="password" class="form-control form-control-lg"
+                                id="imageUrl"
+                                formControlName="password"
+                                [class.is-invalid]="form.get('password')?.invalid && form.get('password')?.touched"
+                                [class.valid]="form.get('password')?.valid"
+                                placeholder="Enter Password">
+                            @if (form.get('password')?.hasError('required')) {
+                            <div class="invalid-feedback">
+                                *Enter valid password!
+                            </div>
+                            }
+                            @if (form.get('password')?.hasError('minlength')) {
+                            <div class="invalid-feedback fw-medium">
+                                *Enter at-least 6 chars of password!
+                            </div>
+                            }
+                        </div>
+
+                        <div
+                            class="d-flex justify-content-end align-items-center gap-2 mt-5">
+                            <button type="submit"
+                                class="btn px-4 submitBtn text-white cursor-pointer bg-gradient border-0"
+                                [disabled]="form.invalid">LogIn</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RestaurantService } from '../../Services/restaurant.service';
 
 @Component({
   selector: 'app-navigation',
@@ -8,5 +9,5 @@ import { RouterLink, RouterLinkActive } from "@angular/router";
   styleUrl: './navigation.component.css'
 })
 export class NavigationComponent {
-
+  menuItems = inject(RestaurantService).menuItems
 }

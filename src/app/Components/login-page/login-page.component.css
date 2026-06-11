@@ -1,0 +1,17 @@
+.loginForm {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.submitBtn {
+    background-color: var(--coffee-bean);
+}
+
+.submitBtn:hover {
+    background-color: var(--dusty-olive);
+}
+
+.loginField {
+    background-image: url("../../../../public/images/stock-bg.jpg");
+    background-size: cover !important;
+}
