@@ -77,6 +77,12 @@
     width: 30% !important;
 }
 
+.resetBtn:hover {
+    background-color: var(--dusty-olive) !important;
+    color: var(--primary-white) !important;
+    border-color: transparent !important;
+}
+
 /* CSS to apply on special items */
 
 @keyframes rotate {

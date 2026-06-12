@@ -69,7 +69,7 @@
                 <input type="number" id="price" class="form-control border-start-0" placeholder="Enter Price"
                     aria-label="Username"
                     aria-describedby="price" min="0" formControlName="price"
-                    (keydown)="validateNumber($event)">
+                    (keydown)="restaurantService.validateNumber($event)">
             </div>
             <div class="invalid-feedback">
                 *Enter valid Price!
@@ -85,7 +85,7 @@
     <div class="d-flex justify-content-end align-items-center gap-2 mt-sm-3">
         <button type="button"
             class="btn px-4 resetBtn text-muted cursor-pointer bg-gradient border border-secondary"
-            (click)="onResetForm()">Reset</button>
+            (click)="restaurantService.onResetForm()">Reset</button>
         <button type="submit"
             class="btn px-4 submitBtn text-white cursor-pointer bg-gradient border-0"
             [disabled]="form.invalid">Add</button>

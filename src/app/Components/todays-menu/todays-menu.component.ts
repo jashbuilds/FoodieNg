@@ -18,6 +18,8 @@ export class TodaysMenuComponent {
   displayComp = viewChild(DisplayItemsComponent)
   toast = viewChild(ToastDirective)
 
+  toastMessage = signal<string>('')
+
   currentItem = signal<string>('')
 
   restaurantService = inject(RestaurantService)
@@ -28,17 +30,24 @@ export class TodaysMenuComponent {
   })
 
   /* Function to get items by category */
-  getItemsByCategory(category: string) {    
+  getItemsByCategory(category: string) {
     return this.menuItems().filter(item => item.category === category)
   }
 
   /* will run when remove will be clicked from modal to remove item from Menu */
   removeItem() {
     const itemToRemove = this.menuItems().find(item => item.itemName === this.currentItem())
+
     if (itemToRemove) {
-      this.menuItems.update(items => items.filter(item => item !== itemToRemove))
+      this.restaurantService.addedItems.update(items =>
+        items.map(item => item.itemName === itemToRemove.itemName ? { ...item, isAdded: false } : item)
+      );
+
+      this.menuItems.update(items => items.filter(item => item.itemName !== itemToRemove.itemName));
     }
-    this.toast()?.show()
+
+    this.toastMessage.set(`${itemToRemove?.itemName} is Removed from Menu!`)
+    this.toast()?.show();
   }
 
   /* function to save item info into signal to remove */

@@ -55,9 +55,11 @@
                             Today's Menu
                         </span>
                     </a>
+                    @if(menuItems().length >= 1) {
                     <span
-                        class="badge p-0 rounded-circle bg-almond-cream color-ebony position-absolute top-0 end-0 d-flex justify-content-center align-items-center">{{
+                        class="badge p-0 fs-5 rounded-circle bg-almond-cream color-ebony position-absolute top-0 end-0 d-flex justify-content-center align-items-center">{{
                         menuItems().length }}</span>
+                    }
                 </li>
             </ul>
         </div>

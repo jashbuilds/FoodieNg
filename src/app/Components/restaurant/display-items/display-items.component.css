@@ -32,3 +32,19 @@
 .addIcon:active {
     transform: scale(0.95);
 }
+
+.submitBtn {
+    background-color: var(--coffee-bean);
+}
+
+.submitBtn:hover {
+    background-color: var(--dusty-olive);
+}
+
+.editBtn {
+    transition: all 0.2s ease-in-out;
+}
+
+.editBtn:hover {
+    transform: scale(1.05);
+}

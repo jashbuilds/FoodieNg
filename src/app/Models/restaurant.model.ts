@@ -3,5 +3,6 @@ export interface ItemList {
     imageUrl: string,
     category: string,
     price: number | null,
-    isSpecial: boolean
+    isSpecial: boolean,
+    isAdded?: boolean
 }
