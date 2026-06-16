@@ -7,6 +7,7 @@ import { TooltipDirective } from "../../Directives/tooltip.directive";
 import { ItemList } from '../../Models/restaurant.model';
 import { SpecialBgColorDirective } from '../../Directives/special-bg-color.directive';
 import { NavigationComponent } from "../navigation/navigation.component";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-todays-menu',
@@ -17,6 +18,8 @@ import { NavigationComponent } from "../navigation/navigation.component";
 export class TodaysMenuComponent {
   displayComp = viewChild(DisplayItemsComponent)
   toast = viewChild(ToastDirective)
+
+  router = inject(Router)
 
   toastMessage = signal<string>('')
 
@@ -36,6 +39,16 @@ export class TodaysMenuComponent {
 
   /* will run when remove will be clicked from modal to remove item from Menu */
   removeItem() {
+
+    if (this.menuItems.length === 0) {
+      setTimeout(() => {
+        window.alert('Redirecting to Home Page...')
+      }, 700);
+      setTimeout(() => {
+        this.router.navigate(['/home'])
+      }, 2000);
+    }
+
     const itemToRemove = this.menuItems().find(item => item.itemName === this.currentItem())
 
     if (itemToRemove) {

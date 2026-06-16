@@ -1,11 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RestaurantService } from '../../../Services/restaurant.service';
-import { NavigationComponent } from "../../navigation/navigation.component";
 
 @Component({
   selector: 'app-add-item',
-  imports: [ReactiveFormsModule, NavigationComponent],
+  imports: [ReactiveFormsModule],
   templateUrl: './add-item.component.html',
   styleUrl: './add-item.component.css'
 })
